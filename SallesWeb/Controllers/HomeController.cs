@@ -25,7 +25,6 @@ namespace SallesWeb.Controllers
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
-            ViewData["Email"] = "bruno@gmail.com";
    
 
             return View();
