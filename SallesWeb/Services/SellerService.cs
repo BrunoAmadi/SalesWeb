@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace SallesWeb.Services
 {
@@ -34,7 +35,7 @@ namespace SallesWeb.Services
 
         public Seller FindById(int id)
         {
-            return _context.Sellers.FirstOrDefault(obj => obj.Id == id);
+            return _context.Sellers.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
 
 
         }

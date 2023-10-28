@@ -38,3 +38,4 @@ C:\Users\Bruno\source\repos\SallesWeb\SallesWeb\obj\Debug\netcoreapp2.1\Razor\Vi
 C:\Users\Bruno\source\repos\SallesWeb\SallesWeb\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Index.g.cshtml.cs
 C:\Users\Bruno\source\repos\SallesWeb\SallesWeb\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Create.g.cshtml.cs
 C:\Users\Bruno\source\repos\SallesWeb\SallesWeb\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Delete.g.cshtml.cs
+C:\Users\Bruno\source\repos\SallesWeb\SallesWeb\obj\Debug\netcoreapp2.1\Razor\Views\Sellers\Details.g.cshtml.cs
