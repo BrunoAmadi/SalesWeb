@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SallesWeb.Services.Exceptions;
 
 namespace SallesWeb.Services
 {
@@ -12,6 +13,7 @@ namespace SallesWeb.Services
     {
 
         private readonly SallesWebContext _context;
+        
 
         public SellerService(SallesWebContext context)
         {
@@ -40,14 +42,33 @@ namespace SallesWeb.Services
 
         }
 
-        public void Delete(int id)
+        public void Remove(int id)
         {
+  
             var obj = _context.Sellers.Find(id);
             _context.Sellers.Remove(obj);
             _context.SaveChanges();
+
         }
 
+        public void Update(Seller obj)
+        {
+            if(!_context.Sellers.Any(x => x.Id == obj.Id))
+            {
+                throw new NotFoundException("Id not found");
+            }
 
+            try
+            {
+
+            _context.Update(obj);
+            _context.SaveChanges();
+
+            }catch(DbUpdateConcurrencyException e)
+            {
+                throw new DbConcurrencyException(e.Message);
+            }
+        }
 
 
     }

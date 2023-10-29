@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SallesWeb.Models;
 using SallesWeb.Services;
+using System.Collections.Generic;
+using SallesWeb.Models.ViewModels;
+
 
 namespace SallesWeb.Controllers
 {
@@ -9,10 +12,13 @@ namespace SallesWeb.Controllers
 
 
         private readonly SellerService _sellerService;
+        private readonly DepartmentService _departmentService;
 
-        public SellersController(SellerService sellerService)
+
+        public SellersController(SellerService sellerService, DepartmentService departmentService)
         {
             _sellerService = sellerService;
+            _departmentService = departmentService;
         }
 
         public IActionResult Index()
@@ -24,7 +30,9 @@ namespace SallesWeb.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var departments = _departmentService.FindAll();
+            var viewModel = new SellerFormViewModel { Departments = departments };
+            return View(viewModel);
         }
 
 
@@ -58,13 +66,19 @@ namespace SallesWeb.Controllers
 
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            _sellerService.Delete(id);
+            _sellerService.Remove(id);
             return RedirectToAction(nameof(Index));
+
         }
+
+
+
+
 
 
         public IActionResult Details(int? id)
@@ -84,5 +98,47 @@ namespace SallesWeb.Controllers
 
             return View(obj);
         }
+
+
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _sellerService.FindById(id.Value);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            List<Department> departments = _departmentService.FindAll();
+            SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departments = departments };
+
+            return View(viewModel);
+
+       
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Seller seller)
+        {
+
+            if(id != seller.Id)
+            {
+                return BadRequest();
+            }
+
+            _sellerService.Update(seller);
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
+
     }
 }

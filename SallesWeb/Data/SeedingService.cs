@@ -43,21 +43,21 @@ namespace SallesWeb.Data
 
 
 
-            SalesRecord sr1 = new SalesRecord(1, new DateTime(2023, 1, 1), 5000.00, SalesStatus.Billed, s1);
-            SalesRecord sr2 = new SalesRecord(2, new DateTime(2023, 1, 1), 2200.00, SalesStatus.Pending, s1);
+            SalesRecord sr1 = new SalesRecord(1, new DateTime(2023, 1, 1), 5000.00, SalesStatus.Billed, s2);
+            SalesRecord sr2 = new SalesRecord(2, new DateTime(2023, 1, 1), 2200.00, SalesStatus.Pending, s2);
             SalesRecord sr3 = new SalesRecord(3, new DateTime(2023, 1, 5), 1500.00, SalesStatus.Canceled, s3);
             SalesRecord sr4 = new SalesRecord(4, new DateTime(2023, 1, 8), 300.00, SalesStatus.Billed, s5);
             SalesRecord sr5 = new SalesRecord(5, new DateTime(2023, 1, 9), 660.00, SalesStatus.Billed, s6);
             SalesRecord sr6 = new SalesRecord(6, new DateTime(2023, 1, 15), 880.00, SalesStatus.Pending, s7);
             SalesRecord sr7 = new SalesRecord(7, new DateTime(2023, 1, 19), 660.00, SalesStatus.Canceled, s8);
             SalesRecord sr8 = new SalesRecord(8, new DateTime(2023, 1, 30), 1000.00, SalesStatus.Canceled, s10);
-            SalesRecord sr9 = new SalesRecord(9, new DateTime(2023, 1, 24), 3000.00, SalesStatus.Pending, s1);
+            SalesRecord sr9 = new SalesRecord(9, new DateTime(2023, 1, 24), 3000.00, SalesStatus.Pending, s2);
             SalesRecord sr10 = new SalesRecord(10, new DateTime(2023, 2, 1), 6000.00, SalesStatus.Billed, s9);
             SalesRecord sr11 = new SalesRecord(11, new DateTime(2023, 2, 3), 1300.00, SalesStatus.Billed, s8);
             SalesRecord sr12 = new SalesRecord(12, new DateTime(2023, 2, 5), 350.00, SalesStatus.Canceled, s6);
             SalesRecord sr13 = new SalesRecord(13, new DateTime(2023, 2, 9), 5500.00, SalesStatus.Pending, s4);
             SalesRecord sr14 = new SalesRecord(14, new DateTime(2023, 2, 20), 1000.00, SalesStatus.Canceled, s2);
-            SalesRecord sr15 = new SalesRecord(15, new DateTime(2023, 2, 15), 1500.00, SalesStatus.Pending, s1);
+            SalesRecord sr15 = new SalesRecord(15, new DateTime(2023, 2, 15), 1500.00, SalesStatus.Pending, s2);
             SalesRecord sr16 = new SalesRecord(16, new DateTime(2023, 2, 26), 1990.0, SalesStatus.Billed, s3);
             SalesRecord sr17 = new SalesRecord(17, new DateTime(2023, 2, 27), 5000.00, SalesStatus.Billed, s6);
             SalesRecord sr18 = new SalesRecord(18, new DateTime(2023, 2, 20), 50.00, SalesStatus.Billed, s7);
