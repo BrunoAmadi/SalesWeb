@@ -1,4 +1,5 @@
-﻿using SallesWeb.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SallesWeb.Data;
 using SallesWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace SallesWeb.Services
         }
 
 
-        public List<Department> FindAll()
+        public async Task<List<Department>> FindAllAsync()
         {
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return await _context.Department.OrderBy(x => x.Name).ToListAsync();
         }
     }
 }
